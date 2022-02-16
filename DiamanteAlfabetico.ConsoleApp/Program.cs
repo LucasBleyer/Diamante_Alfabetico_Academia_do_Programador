@@ -43,6 +43,16 @@ namespace DiamanteAlfabetico.ConsoleApp
                     espacos_dentro = espacos_dentro + 2;
                 }
             }
+
+            for (int i = 0; i < alfabeto.Length; i++)
+            {
+                if (alfabeto[i] == letra)
+                {
+                    metade = i;
+                }
+            }
+
+            
         }
     }
 }
