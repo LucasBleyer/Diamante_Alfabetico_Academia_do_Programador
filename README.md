@@ -1,4 +1,6 @@
 Diamante Alfabetico Academia do Programador
-Diamante com as letras do alfabeto (ACSII Art)
 
-![image](https://user-images.githubusercontent.com/91075515/154329201-f15ceeb5-6efb-4673-a3ad-2213ff43ca9d.png)
+É Dado uma letra ('A' a 'Z'), exiba um diamante iniciando em 'A' e tendo a letra fornecida com o
+ponto mais distante.
+
+![image](https://user-images.githubusercontent.com/91075515/154329321-b22b661e-6560-48ae-90dc-1f6376ebbcd6.png)
