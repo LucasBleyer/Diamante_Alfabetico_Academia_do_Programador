@@ -6,15 +6,19 @@ namespace DiamanteAlfabetico.ConsoleApp
     {
         static void Main(string[] args)
         {
+            //declaração de variaveis
             char letra;
             string str_alfabeto = "abcdefghijklmnopqrstuvwxyz";
             int espacos_fora, espacos_dentro = 0, metade = 0;
 
+            //entrada de dados
             Console.Write("Digite uma letra qualquer do alfabeto: ");
             letra = Convert.ToChar(Console.ReadLine());
 
+            //converter a string do alfabeto em um vetor em char
             char[] alfabeto = str_alfabeto.ToCharArray();
 
+            //achar o meio do diamante
             for (int i = 0; i < alfabeto.Length; i++)
             {
                 if (alfabeto[i] == letra)
