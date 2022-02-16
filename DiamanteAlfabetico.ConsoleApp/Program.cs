@@ -15,6 +15,14 @@ namespace DiamanteAlfabetico.ConsoleApp
 
             char[] alfabeto = str_alfabeto.ToCharArray();
 
+            for (int i = 0; i < alfabeto.Length; i++)
+            {
+                if (alfabeto[i] == letra)
+                {
+                    metade = i;
+                }
+            }
+
             espacos_fora = metade;
             for (int i = 0; i <= metade; i++)
             {
@@ -44,15 +52,38 @@ namespace DiamanteAlfabetico.ConsoleApp
                 }
             }
 
-            for (int i = 0; i < alfabeto.Length; i++)
+            espacos_fora = 0;
+            for (int i = 1; i <= metade; i++)
             {
-                if (alfabeto[i] == letra)
-                {
-                    metade = i;
-                }
-            }
 
-            
+                espacos_fora = espacos_fora + 1;
+                if (i == metade)
+                {
+                    espacos_dentro = 1;
+                }
+                if (i != 0 && i != metade)
+                {
+                    espacos_dentro = espacos_dentro - 2;
+                }
+
+                for (int j = 0; j < espacos_fora; j++)
+                {
+                    Console.Write(" ");
+                }
+
+                Console.Write(alfabeto[metade - i]);
+
+                for (int k = 0; k < espacos_dentro; k++)
+                {
+                    Console.Write(" ");
+                }
+
+                if (i != metade)
+                {
+                    Console.Write(alfabeto[metade - i]);
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
