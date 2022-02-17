@@ -6,18 +6,14 @@ namespace DiamanteAlfabetico.ConsoleApp
     {
         static void Main(string[] args)
         {
-            //declaração de variaveis
             string str_alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             int espacos_fora, espacos_dentro = 0;
 
-            //entrada de dados
             Console.Write("Digite uma letra qualquer do alfabeto: ");
             char letra = Convert.ToChar(Console.ReadLine().ToUpper());
 
-            //converter a string do alfabeto em um vetor em char {'A', 'B', 'C'...}
             char[] alfabeto = str_alfabeto.ToCharArray();
 
-            //achar o meio do diamante
             int meio = 0;
             for (int i = 0; i < alfabeto.Length; i++)
             {
@@ -27,11 +23,10 @@ namespace DiamanteAlfabetico.ConsoleApp
                 }
             }
 
-            //achar a parte superior do diamante
-            espacos_fora = meio;//setar os espacos de fora para começar no mesmo tanto que a metade
+            espacos_fora = meio;
             for (int i = 0; i <= meio; i++)
             {
-                Console.WriteLine(" ");//ler primeiro os espaços internos e externos
+                Console.WriteLine(" ");
                 for (int j = 0; j < espacos_fora; j++)
                 {
                     Console.Write(" ");
@@ -44,7 +39,7 @@ namespace DiamanteAlfabetico.ConsoleApp
                     Console.Write(" ");
                 }
 
-                if (i != 0)//achar o padrão
+                if (i != 0)
                 {
                     Console.Write(alfabeto[i]);
                 }
@@ -62,39 +57,30 @@ namespace DiamanteAlfabetico.ConsoleApp
                 }
             }
 
-            //achar a parte inferior do diamante
-            espacos_fora = 0;//setar os espacos de fora igual zero pra adicionar novos espacos externos
-            for (int i = 1; i <= meio; i++)
+            espacos_fora = 1;
+            espacos_dentro = meio - 1;
+            for (int i = (meio - 1); i >= 0; i--)
             {
-                Console.WriteLine(" ");//achar o padrão
-                espacos_fora++;
-
-                if (i == meio)
+                Console.WriteLine(" ");
+                for (int j = 0; j < espacos_fora; j++)
                 {
-                    espacos_dentro = 1;
+                    Console.Write(" ");
                 }
-                else if (i != 0 && i != meio)
-                {
-                    espacos_dentro -=2;
-                }
+                Console.Write(alfabeto[i]);
 
-                for (int j = 0; j < espacos_fora; j++)//ler os espaços externos e internos
+                for (int k = espacos_dentro; k >= 0; k--)
                 {
                     Console.Write(" ");
                 }
 
-                Console.Write(alfabeto[meio - i]);
-
-                for (int k = 0; k < espacos_dentro; k++)
+                if (i != 0)
                 {
-                    Console.Write(" ");
-                }
-
-                if (i != meio)
-                {
-                    Console.Write(alfabeto[meio - i]);
+                    Console.Write(alfabeto[i]);
                 }
                 Console.WriteLine();
+
+                espacos_fora++;
+                espacos_dentro -= 2;
             }
         }
     }
